@@ -8,6 +8,6 @@ public class C489 {
         int num = s;
         ArrayList<Integer> digits = new ArrayList<>();
         
-        
+
     }
 }
