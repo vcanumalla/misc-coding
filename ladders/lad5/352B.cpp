@@ -24,10 +24,36 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    int n; cin >> n;
+    vi seq(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> seq[i];
+    }
+    map<int, int> collected;
+    for (int i = 0; i < n; ++i) {
+        int sacred = seq[i];
+        if (collected.count(sacred)) {
+            int gap = collected[sacred];
+            if (gap == -1) {
+            
+            }
+            else if (gap < -1) {
+                
+            }
+            else {
+                if (seq[i - gap] == sacred) {
+                
+                }
+                else {
+                    collected[sacred] = -1;
+                }
+            }
+        }
+        else {
+            collected[sacred] = 0;
+        }
+    }
     return 0;
-    
 
 }
 

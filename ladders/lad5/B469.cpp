@@ -24,10 +24,11 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
-    return 0;
+    int p, q, l, r; cin >> p >> q >> l >> r;
+    int amount = 0;
+    vvi statics(p));
     
+    return 0;
 
 }
 

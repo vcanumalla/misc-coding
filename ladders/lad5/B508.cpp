@@ -24,10 +24,35 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    string s; cin >> s;
+    int maxEven = -1;
+    vi indexes;
+    for (int i = 0; i < s.length(); ++i) {
+        int n = s[i] - 48;
+        if (n % 2 == 0) {
+            indexes.pb(i);
+        }
+    }
+    int last = s[s.length() - 1] - '0';
+    for (int i = 0; i < indexes.size(); ++i) {
+        int index = indexes[i];
+        if (last > s[index] - 48) {
+            swap(s[s.length() - 1], s[index]);
+            break;
+        }
+        else {
+            if (i == indexes.size() -  1) {
+                swap(s[s.length() - 1], s[index]);
+            }
+        }
+    }
+    if (indexes.size() == 0) {
+        cout << -1 << nl;
+    }
+    else {
+        cout << s << nl;
+    }
     return 0;
-    
 
 }
 

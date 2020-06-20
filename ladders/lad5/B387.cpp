@@ -24,10 +24,36 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    int n, m; cin >> n >> m;
+    vi a(n);
+    vi b(m);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    for (int i = 0; i < m; ++i) {
+        cin >> b[i];
+    }
+    sort(a.begin(), a.end());
+    sort (b.begin(), b.begin());
+    int numNeeded = n;
+    for (int i = 0; i < n; ++i) {
+        int num = a[i];
+        int index = -1;
+        for (int j = b.size() - 1; j >= 0; --j) {
+            if (b[j] >= num) {
+                index = j;
+            }
+            else {
+                break;
+            }   
+        }
+        if (index != -1) {
+            numNeeded--;
+            b.erase(b.begin() + index);
+        }
+    }
+    cout << numNeeded << nl;
     return 0;
-    
 
 }
 

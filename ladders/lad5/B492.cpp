@@ -24,10 +24,23 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    ll n, l; cin >> n >> l;
+    vll lanterns(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> lanterns[i];
+    }
+    sort(lanterns.begin(), lanterns.end());
+    long double border1 = lanterns[0];
+    long double border2 = l - lanterns[lanterns.size() - 1];
+    long double maxGap = 0;
+    for (int i = 1; i < n -2; ++i) {
+        long double gap = lanterns[i+1] - lanterns[i];
+        maxGap = max(gap, maxGap);
+    }
+    long double trueGap = maxGap / 2.;
+    long double border = max(border1, border2);
+    cout << max(trueGap , border) << nl;
     return 0;
-    
 
 }
 

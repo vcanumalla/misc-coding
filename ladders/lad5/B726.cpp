@@ -24,10 +24,29 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    string s; cin >> s;
+    vi occur(26);
+    for (int i = 0; i < s.length(); ++i) {
+        occur[s[i] - 'a']++;
+    }
+    int numOdd = 0;
+    for (int i = 0; i < 26; ++i) {
+        if (occur[i] %2 == 1) {
+            numOdd++;
+        }
+    }
+    if (numOdd <= 1) {
+        cout << "First" << nl;
+    }
+    else {
+        if (numOdd % 2 == 1) {
+            cout << "First" << nl;
+        }
+        else {
+            cout << "Second" << nl;
+        }
+    }
     return 0;
-    
 
 }
 

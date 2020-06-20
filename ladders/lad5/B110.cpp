@@ -24,10 +24,19 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    int n; cin >> n;
+    while (n > 0) {
+        for (int i = 0; i < 4; ++i) {
+            char c = i + 97;
+            cout << c;
+            n--;
+            if (n == 0) {
+                break;
+            }
+        }
+    }
+    cout << nl;
     return 0;
-    
 
 }
 

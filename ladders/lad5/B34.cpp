@@ -24,10 +24,25 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    int n, m; cin >> n >> m;
+    vi numbers(n);
+    F0R(i, n) {
+        cin >> numbers[i];
+    }
+    sort(numbers.begin(), numbers.end());
+    int sum = 0;
+    for (int i = 0; i < m; ++i) {
+        int newNum = sum;
+        newNum -= numbers[i];
+        if (newNum < sum) {
+            break;
+        }
+        else {
+            sum -= numbers[i];
+        }
+    }
+    cout << sum << nl;
     return 0;
-    
 
 }
 

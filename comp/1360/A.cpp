@@ -24,10 +24,19 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    int t; cin >> t;
+    while (t--) {
+        int x, y; cin >> x >> y;
+        if (y < x) {
+            y *= 2;
+        }
+        else {
+            x *= 2;
+        }
+        int ar = max(x,y) * max(x,y);
+        cout << ar << nl;
+    }
     return 0;
-    
 
 }
 

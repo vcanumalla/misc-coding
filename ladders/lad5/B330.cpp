@@ -24,10 +24,37 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
-    return 0;
+    int n, m; cin >> n >> m;
+    vi cities(n);
+    for (int i = 0; i < m; ++i) {
+        int num; cin >> num;
+        if (cities[num-1] == 0) {
+            cities[num-1] =1;
+        }
+        cin >> num;
+        if (cities[num - 1] == 0) {
+            cities[num - 1] = 1;
+        }
+    }
+    int center = -1;
+    for (int i = 0; i < n; ++i) {
+        if (cities[i] == 0) {
+            center = i+1;
+            break;
+        }
+    }
+    cout << n -1 << nl;
+    for (int i = 1; i <= n; ++i) {
+        if (i == center) {
+        
+        }
+        else {
+            cout << i << " " << center << nl;
+        }
+    }
+
     
+    return 0;
 
 }
 

@@ -24,10 +24,20 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    cout << "Hello" << nl;
-    cout << "test" << nl;
+    int t; cin >> t;
+    while (t--) {
+        ll a, k; cin >> a >> k;
+
+        for (ll i = 1; i < k; ++i) {
+            string s = a + "";
+            sort(s.begin(), s.end());
+            int min = s[0] - 0;
+            int max = s[s.size() - 1] - 0;
+            a += min * max;
+        }
+        cout << a << nl;
+    }
     return 0;
-    
 
 }
 
