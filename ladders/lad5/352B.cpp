@@ -29,31 +29,50 @@ int main() {
     for (int i = 0; i < n; ++i) {
         cin >> seq[i];
     }
-    map<int, int> collected;
+    vpi locations(100001);
+    for (int i = 0; i < 100001; ++i) {
+        locations[i].first = -1;
+        locations[i].second = 0;
+    }
     for (int i = 0; i < n; ++i) {
-        int sacred = seq[i];
-        if (collected.count(sacred)) {
-            int gap = collected[sacred];
-            if (gap == -1) {
-            
-            }
-            else if (gap < -1) {
-                
+        int num = seq[i];
+        if (locations[num].first == -1) {
+            locations[num].first = i;
+        }
+        else {
+            int index = i;
+            if (locations[num].second == 0) {
+                locations[num].second = index - locations[num].first;
+                locations[num].first = index;
             }
             else {
-                if (seq[i - gap] == sacred) {
-                
+                if (index - locations[num].first != locations[num].second) {
+                    locations[num].second = -1;
                 }
                 else {
-                    collected[sacred] = -1;
+                    locations[num].first = index;
                 }
             }
         }
-        else {
-            collected[sacred] = 0;
+    }
+    int count = 0;
+    for (int i = 1; i < 100001; ++i) {
+        if (locations[i].first != -1) {
+            if (locations[i].second != -1) {
+                count++;
+            }
+        }
+    }
+    
+    cout << count << nl;
+    for (int i = 0; i < 100001; ++i) {
+        if (locations[i].first != -1) {
+            if (locations[i].second != -1) {
+                cout << i << " " << locations[i].second << nl;
+            }
         }
     }
     return 0;
-
 }
+
 
