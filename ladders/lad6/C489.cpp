@@ -73,6 +73,7 @@ int main() {
            cout << i;
        }
        cout << nl;
+       
     }
     return 0;
 
