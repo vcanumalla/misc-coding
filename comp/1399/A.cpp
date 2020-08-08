@@ -24,13 +24,33 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    int n; cin >> n;
-    vpi planks;
-    for (int i = 0; i < n; ++i) {
+    int t; cin >> t;
+    while (t--) {
+        int n; cin >> n;
         
+            vi nums(n);
+            bool check = true;
+            for (int i = 0; i < n; ++i) {
+                cin >> nums[i];
+            }
+            sort(nums.begin(), nums.end());
+            for (int i = 1; i < n; ++i) {
+                if (nums[i] - nums[i - 1] <= 1) {
+                
+                }
+                else {
+                    check = false;
+                    break;
+                }
+            }
+            if (check) {
+                cout << "YES" << nl;
+            }
+            else {
+                cout << "NO" << nl;
+            }
     }
     return 0;
-    
 
 }
 

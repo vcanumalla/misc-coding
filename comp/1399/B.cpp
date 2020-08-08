@@ -1,4 +1,3 @@
-
 #include "bits/stdc++.h"
 using namespace std;
 using ll = long long;
@@ -28,10 +27,31 @@ int main() {
     int t; cin >> t;
     while (t--) {
         int n; cin >> n;
-        cout << (n/2) + 1 << nl;
+        vll candies(n);
+        vll oranges(n);
+        vll changes(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> candies[i];
+        }
+        for (int i = 0; i < n; ++i) {
+            cin >> oranges[i];
+        }
+        ll cMin = *min_element(candies.begin(), candies.end());
+        ll oMin = *min_element(oranges.begin(), oranges.end());
+        for (int i = 0; i < n; ++i) {
+            changes[i] = candies[i] - cMin;
+        }
+        ll base = 0;
+        for (int i = 0; i < n; ++i) {
+            changes[i] += max(oranges[i] - oMin - changes[i], base);
+        }
+        ll sum = 0;
+        for (int i: changes) {
+            sum += i;
+        }
+        cout << sum << nl;
     }
     return 0;
-    
 
 }
 
