@@ -24,7 +24,19 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    int t; cin >> t;
+    int n; cin >> n;
+    unordered_map<string, int> names;
+    for (int i = 0; i < n; ++i) {
+        string s; cin >> s;
+        if (names.count(s) == 1) {
+            names[s]++;
+            cout << s << names[s] << nl;
+        }
+        else {
+            names[s];
+            cout << "OK" << nl;
+        }
+    }
     return 0;
 
 }

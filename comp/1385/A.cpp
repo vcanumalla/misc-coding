@@ -25,6 +25,21 @@ const ll INF = 1e18;
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
     int t; cin >> t;
+    while (t--) {
+        vi nums(3);
+        for (int i = 0; i < 3; ++i) {
+            cin >> nums[i];
+        }
+        sort(nums.begin(), nums.end());
+        if (nums[2] != nums[1]) {
+            cout << "NO" << nl;
+        }
+        else {
+            cout << "YES" << nl;
+            cout << nums[0] << " " << nums[0] << " " << nums[2] << nl;
+        }
+
+    }
     return 0;
 
 }

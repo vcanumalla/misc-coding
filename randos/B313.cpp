@@ -24,7 +24,30 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
+    string s; cin >> s;
     int t; cin >> t;
+    vi A(s.size());
+    for (int i = 0; i < s.size() - 1; ++i) {
+        if (s[i] == s[i+1]) {
+            A[i] = 1;
+        }
+    }
+    cout << "[ ";
+    for (int i : A) {
+        cout << i << " ";
+    }
+    cout << "]" << nl;
+    vi S(s.size());
+    S[0] = A[0];
+    for (int i = 1; i < s.size(); ++i) {
+        S[i] = S[i-1] + A[i];
+    }
+    cout << "[ ";
+    for (int i : S) {
+        cout << i << " ";
+    }
+    cout << "]" << nl;
+    cout << 10 + s[-1];
     return 0;
 
 }

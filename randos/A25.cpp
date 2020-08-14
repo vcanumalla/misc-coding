@@ -24,7 +24,31 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    int t; cin >> t;
+    int n; cin >> n;
+    int countOdd = 0;
+    int countEven = 0;
+    vi nums(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> nums[i];
+        if (nums[i] % 2 == 0) {
+            countEven++;
+        }
+        else {
+            countOdd++;
+        }
+    }
+    int desired;
+    if (countOdd > countEven) {
+        desired = 0;
+    }
+    else {
+        desired = 1;
+    }
+    for (int i = 0; i < n; ++i) {
+        if (nums[i] % 2 == desired) {
+            cout << i + 1 << nl;
+        }
+    }
     return 0;
 
 }
