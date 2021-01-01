@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
 using ll = long long;
 using vi = vector<int>;
@@ -24,23 +24,32 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    int n, m; cin >> n >> m;
-    multiset<ll> tickets;
-    while (n--) {
-        ll ticket; cin >> ticket;
-        tickets.insert(ticket);
+    int n; cin >> n;
+    vi boys(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> boys[i];
     }
-    while (m--) {
-        ll cur_person; cin >> cur_person;
-        auto it = tickets.lower_bound(cur_person);
-        if (it  == tickets.end()) {
-            cout << -1 << '\n';
-        }
-        else {
-            cout << *it << '\n';
-            tickets.erase(it);
+    int m; cin >> m;
+    vi girls(m);
+    for (int i = 0; i < m; ++i) {
+        cin >> girls[i];
+    }
+    sort(boys.begin(), boys.end());
+    sort(girls.begin(), girls.end());
+    int count = 0;
+    int minBoy = 0;
+    for (int i = 0; i < m; ++i){ 
+        int curGirl = girls[i];
+        for (int j = minBoy; j < n; ++j) {
+            if (abs(boys[j] - curGirl) <=1) {
+                //cout << boys[j] << " " << curGirl << nl;
+                count++;
+                minBoy = j + 1;
+                break;
+            }
         }
     }
+    cout << count << nl;
     return 0;
 
 }

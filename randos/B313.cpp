@@ -21,34 +21,37 @@ using vpi = vector<pair<int, int> >;
 const char nl = '\n';
 const ll MOD = 1e9 + 7;
 const ll INF = 1e18;
-
+void printvi(vi vec) {
+  cout << "[";
+  for (int i  = 0; i < vec.size(); ++i) {
+    cout << vec[i] << " ";
+  }
+  cout << "]\n";
+}
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
     string s; cin >> s;
     int t; cin >> t;
-    vi A(s.size());
+    vi next(s.size() - 1);
     for (int i = 0; i < s.size() - 1; ++i) {
         if (s[i] == s[i+1]) {
-            A[i] = 1;
+            next[i] = 1;
         }
     }
-    cout << "[ ";
-    for (int i : A) {
-        cout << i << " ";
-    }
-    cout << "]" << nl;
-    vi S(s.size());
-    S[0] = A[0];
+    next.push_back(0);
+
+    vi sums(s.size());
+    sums[0] = next[0];
     for (int i = 1; i < s.size(); ++i) {
-        S[i] = S[i-1] + A[i];
+        sums[i] = sums[i-1] + next[i];
     }
-    cout << "[ ";
-    for (int i : S) {
-        cout << i << " ";
+    printvi(next);
+    printvi(sums);
+    while (t--) {
+        int b1; cin >> b1;
+        int b2; cin >> b2;
+        cout << sums[b2 - 1] - sums[b1 - 2] << nl;
     }
-    cout << "]" << nl;
-    cout << 10 + s[-1];
     return 0;
 
 }
-

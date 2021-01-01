@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
 using ll = long long;
 using vi = vector<int>;
@@ -24,22 +24,32 @@ const ll INF = 1e18;
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    int n, m; cin >> n >> m;
-    multiset<ll> tickets;
-    while (n--) {
-        ll ticket; cin >> ticket;
-        tickets.insert(ticket);
-    }
-    while (m--) {
-        ll cur_person; cin >> cur_person;
-        auto it = tickets.lower_bound(cur_person);
-        if (it  == tickets.end()) {
-            cout << -1 << '\n';
+    int t; cin >> t;
+    while (t--) {
+        vi letters(26);
+        int n; cin >> n;
+        int m = n;
+        while (n--) {
+            string s; cin >> s;
+            for (char c: s) {
+                letters[c - 'a']++;
+            }
+        }
+        bool check = true;
+        for (int i: letters) {
+            if (i % m != 0) {
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            cout << "YES";
         }
         else {
-            cout << *it << '\n';
-            tickets.erase(it);
+            cout << "NO";
         }
+        cout << nl;
+    
     }
     return 0;
 
